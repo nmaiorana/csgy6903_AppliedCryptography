@@ -7858,14 +7858,12 @@ Since the key space is the number of possible keys that can be used, we need to 
 </li>
 <li>a = 23 * 5^-1</li>
 </ul>
-<p>Using Euclid's algorithm we can find the modular inverse of 5^-1:</p>
-<ul>
+<h4 id="Using-Euclid's-algorithm-we-can-find-the-modular-inverse-of-5%5E-1:">Using Euclid's algorithm we can find the modular inverse of 5^-1:<a class="anchor-link" href="#Using-Euclid's-algorithm-we-can-find-the-modular-inverse-of-5%5E-1:">¶</a></h4><ul>
 <li>26 = 5 X (5) + 1</li>
 <li>5 = 1 X (5) + 0</li>
 <li>Stop</li>
 </ul>
-<p>Backward substitution:</p>
-<ul>
+<h4 id="Backward-substitution:">Backward substitution:<a class="anchor-link" href="#Backward-substitution:">¶</a></h4><ul>
 <li><p>1 = 26 - 5 X (5)</p>
 </li>
 <li><p>26 - 1 = 5 X (5)</p>
@@ -7877,8 +7875,7 @@ Since the key space is the number of possible keys that can be used, we need to 
 <li><p>a = 11 (mod 26)</p>
 </li>
 </ul>
-<p>Plugging back into the original formulas</p>
-<ul>
+<h4 id="Plugging-back-into-the-original-formulas">Plugging back into the original formulas<a class="anchor-link" href="#Plugging-back-into-the-original-formulas">¶</a></h4><ul>
 <li>4 = 14(11) + b</li>
 <li>b = 4 - 14(11) mod 26</li>
 <li>b = 6</li>
@@ -7889,20 +7886,45 @@ Since the key space is the number of possible keys that can be used, we need to 
 <li>b = 7 - 19(11) mod 26</li>
 <li>b = 6</li>
 </ul>
-<p>The results are that a = 11 and b = 6</p>
-<ul>
+<h4 id="The-results-are-that-a-=-11-and-b-=-6">The results are that a = 11 and b = 6<a class="anchor-link" href="#The-results-are-that-a-=-11-and-b-=-6">¶</a></h4><ul>
 <li>7 = 19 X (11) + 6 mod 26</li>
 <li>4 = 14 X (11) + 6 mod 26</li>
 </ul>
-<p>To decrypt:</p>
-<ul>
+<h4 id="To-decrypt:">To decrypt:<a class="anchor-link" href="#To-decrypt:">¶</a></h4><ul>
 <li>19 = a^-1(7 - b) mod 26</li>
 <li>14 = a^-1(4 - b) mod 26</li>
 </ul>
 <p>Substitute a=11^-1 (not 1/11), b = 6:</p>
-<ul>
-<li>19 = 11^-1(7 - 6) mod 26</li>
-<li>14 = 11^-1(4 -6) mod 26</li>
+<h4 id="Find-the-inverse-of-11%5E-1-mod-26">Find the inverse of 11^-1 mod 26<a class="anchor-link" href="#Find-the-inverse-of-11%5E-1-mod-26">¶</a></h4><ul>
+<li>11^-1 = 1 mod 26</li>
+</ul>
+<h4 id="Euclid's-Algorithm">Euclid's Algorithm<a class="anchor-link" href="#Euclid's-Algorithm">¶</a></h4><ul>
+<li>26 = 11 X 2 + 4</li>
+<li>11 = 4 X 2 + 3</li>
+<li>4 = 3 X 1 + 1</li>
+<li>3 = 1 X 3 + 0</li>
+</ul>
+<h4 id="Backward-Substitution">Backward Substitution<a class="anchor-link" href="#Backward-Substitution">¶</a></h4><ul>
+<li>1 = 4 - 3X1</li>
+<li>3 = 11 - 4X2</li>
+<li>4  = 26 - 11X2</li>
+</ul>
+<h4 id="Substituting-back-into-the-original-formula">Substituting back into the original formula<a class="anchor-link" href="#Substituting-back-into-the-original-formula">¶</a></h4><ul>
+<li>1 = 4 - (11 - 4X2)X1</li>
+<li>1 = 4 - 11x1 + 4X2</li>
+<li>1 = -11x1 + 4x3</li>
+<li>1 = -11x1 + 4(26 - 11X2)X3</li>
+<li>1 = -11x1 + 26X3 - 11x6</li>
+<li>1 = 26X3 - 11x7</li>
+<li>1 = 26X3 + 11(-7)</li>
+</ul>
+<h4 id="Therefore">Therefore<a class="anchor-link" href="#Therefore">¶</a></h4><ul>
+<li><p>-7 mod 26 = 19</p>
+</li>
+<li><p>19 = 19(7 - 6) mod 26</p>
+</li>
+<li><p>14 = 19(4 -6) mod 26</p>
+</li>
 </ul>
 </div>
 </div>
