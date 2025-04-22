@@ -1,0 +1,32 @@
+services:
+  client:
+    build:
+      context: .
+      dockerfile: docker-client
+    container_name: csgy6903-client
+    tty: true
+    stdin_open: true
+    networks:
+      bridge:
+         ipv4_address: 192.168.1.100
+
+  server:
+    build:
+      context: .
+      dockerfile: docker-server
+    container_name: csgy6903-server
+    tty: true
+    stdin_open: true
+    networks:
+      bridge:
+         ipv4_address: 192.168.1.101
+
+networks:
+  bridge:
+    driver: bridge
+    driver_opts:
+      parent: eth0  
+    ipam:
+      config:
+        - subnet: 192.168.1.0/24
+

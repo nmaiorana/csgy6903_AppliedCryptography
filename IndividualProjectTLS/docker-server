@@ -1,0 +1,29 @@
+FROM ubuntu:latest
+
+# Install necessary packages
+RUN apt-get update && apt-get install -y \
+    nginx \
+    curl \
+    vim \
+    net-tools \
+    iproute2 \
+    traceroute \
+    iputils-ping \
+    wget \
+    unzip
+
+# Download EasyRSA
+WORKDIR /opt
+RUN wget https://github.com/OpenVPN/easy-rsa/releases/download/v3.2.2/EasyRSA-3.2.2.tgz \ 
+    && tar -xvzf EasyRSA-3.2.2.tgz \
+    && mv EasyRSA-3.2.2 easy-rsa
+
+# Copy custom welcome page
+COPY ./shared/index.html /var/www/html/index.html
+
+# Set working directory
+WORKDIR /app
+
+# Ensure Nginx starts correctly
+CMD ["bash", "-c", "service nginx start && tail -f /var/log/nginx/access.log"]
+
